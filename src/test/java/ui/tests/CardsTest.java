@@ -1,5 +1,6 @@
 package ui.tests;
 
+import io.qameta.allure.AllureId;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,7 @@ public class CardsTest extends BaseTest{
 
     private final CardsPage cardsPage = new CardsPage();
 
+    @AllureId("2234")
     @DisplayName("Show credit cards")
     @Test
     public void showCreditCards() {

@@ -4,6 +4,7 @@ import api.BaseTest;
 import api.model.UserModel;
 import com.github.javafaker.Faker;
 import com.google.gson.Gson;
+import io.qameta.allure.AllureId;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -22,6 +23,7 @@ public class ReqResTest extends BaseTest {
     final String pswrd = "password" + faker.number().digits(4);
     final String name = faker.address().firstName();
 
+    @AllureId("2236")
     @DisplayName("GET. User not found")
     @Test
     public void userNotFound() {
@@ -29,6 +31,7 @@ public class ReqResTest extends BaseTest {
                 .get("usernotfound/100500").then().assertThat().statusCode(HttpStatus.SC_NOT_FOUND).log().body();
     }
 
+    @AllureId("2237")
     @DisplayName("GET. Users list")
     @Test
     public void usersList() {
@@ -40,6 +43,7 @@ public class ReqResTest extends BaseTest {
                 .log().body();
     }
 
+    @AllureId("2238")
     @DisplayName("GET. User by id")
     @Test
     public void userById() {
@@ -53,6 +57,7 @@ public class ReqResTest extends BaseTest {
                         equalTo(2));
     }
 
+    @AllureId("2239")
     @DisplayName("PUT. Update user")
     @Test
     public void updateUser() {
@@ -70,6 +75,7 @@ public class ReqResTest extends BaseTest {
                 .body("job", equalTo(job));
     }
 
+    @AllureId("2240")
     @DisplayName("POST. Create User")
     @Test
     public void createUser() {

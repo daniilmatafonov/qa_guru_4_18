@@ -1,6 +1,7 @@
 package ui.tests;
 
 import com.github.javafaker.Faker;
+import io.qameta.allure.AllureId;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,7 @@ public class LoansTest extends BaseTest {
     private final LoansPage loansPage = new LoansPage();
     private final Faker faker = new Faker();
 
+    @AllureId("2235")
     @DisplayName("Close customer loan")
     @Test
     public void closeCustomerLoanSuccess() {
