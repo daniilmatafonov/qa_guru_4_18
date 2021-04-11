@@ -5,6 +5,8 @@ import api.model.UserModel;
 import com.github.javafaker.Faker;
 import com.google.gson.Gson;
 import org.apache.http.HttpStatus;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -12,6 +14,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.core.Is.is;
 
+@Tag("api-tests")
 public class ReqResTest extends BaseTest {
 
     final Faker faker = new Faker();
@@ -19,12 +22,14 @@ public class ReqResTest extends BaseTest {
     final String pswrd = "password" + faker.number().digits(4);
     final String name = faker.address().firstName();
 
+    @DisplayName("GET. User not found")
     @Test
     public void userNotFound() {
         given().spec(requestSpecification)
                 .get("usernotfound/100500").then().assertThat().statusCode(HttpStatus.SC_NOT_FOUND).log().body();
     }
 
+    @DisplayName("GET. Users list")
     @Test
     public void usersList() {
         given().spec(requestSpecification)
@@ -35,6 +40,7 @@ public class ReqResTest extends BaseTest {
                 .log().body();
     }
 
+    @DisplayName("GET. User by id")
     @Test
     public void userById() {
         given().spec(requestSpecification)
@@ -47,6 +53,7 @@ public class ReqResTest extends BaseTest {
                         equalTo(2));
     }
 
+    @DisplayName("PUT. Update user")
     @Test
     public void updateUser() {
         String name = "Homer Simpson";
@@ -63,6 +70,7 @@ public class ReqResTest extends BaseTest {
                 .body("job", equalTo(job));
     }
 
+    @DisplayName("POST. Create User")
     @Test
     public void createUser() {
         final String emailAddress = faker.internet().emailAddress();

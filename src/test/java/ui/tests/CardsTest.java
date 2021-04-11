@@ -1,6 +1,6 @@
 package ui.tests;
 
-import io.qameta.allure.AllureId;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ui.pages.CardsPage;
@@ -8,13 +8,12 @@ import ui.pages.CardsPage;
 import static com.codeborne.selenide.Selenide.open;
 
 @Tag("web")
-@Tag("cards")
+@Tag("ui-tests")
 public class CardsTest extends BaseTest{
 
     private final CardsPage cardsPage = new CardsPage();
 
-    @Tag("credit_cards")
-    @AllureId("2144")
+    @DisplayName("Show credit cards")
     @Test
     public void showCreditCards() {
         open("/");
