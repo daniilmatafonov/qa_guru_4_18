@@ -7,14 +7,17 @@ plugins {
 sourceCompatibility = 1.8
 
 repositories {
+    maven { url = "https://dl.bintray.com/qameta/maven-unstable/" }
     mavenCentral()
 }
+
 def allureVersion = "2.13.8",
     selenideVersion = "5.18.0",
     junitVersion = "5.7.0",
     gsonVersion = "2.8.6",
     ownerVersion = "1.0.12",
     restAssuredVersion = "4.3.3",
+    allureEEVersion = "3.28.2",
     javaFakerVersion = "1.0.2"
 
 allure {
@@ -29,12 +32,13 @@ dependencies {
     testImplementation(
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "com.google.code.gson:gson:$gsonVersion",
+            "io.qameta.allure:allure-ee-junit-platform:$allureEEVersion",
             "com.github.javafaker:javafaker:$javaFakerVersion",
-            "io.rest-assured:rest-assured:$restAssuredVersion",
-            "io.qameta.allure:allure-rest-assured:$allureVersion",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
             "org.junit.jupiter:junit-jupiter-params:$junitVersion",
+            "com.google.code.gson:gson:$gsonVersion",
+            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "io.qameta.allure:allure-rest-assured:$allureVersion",
             "org.aeonbits.owner:owner:$ownerVersion")
 
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
