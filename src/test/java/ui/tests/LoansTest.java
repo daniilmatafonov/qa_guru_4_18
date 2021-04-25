@@ -5,6 +5,7 @@ import io.qameta.allure.AllureId;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import ru.raiff.demo.allure.JiraIssue;
 import ui.pages.LoansPage;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -16,6 +17,7 @@ public class LoansTest extends BaseTest {
     private final LoansPage loansPage = new LoansPage();
     private final Faker faker = new Faker();
 
+    @JiraIssue("QC3-26")
     @AllureId("2235")
     @DisplayName("Close customer loan")
     @Test

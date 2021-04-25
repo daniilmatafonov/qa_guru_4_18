@@ -11,7 +11,7 @@ repositories {
     mavenCentral()
 }
 
-def allureVersion = "2.13.8",
+def allureVersion = "2.13.9",
     selenideVersion = "5.18.0",
     junitVersion = "5.7.0",
     gsonVersion = "2.8.6",
@@ -29,6 +29,7 @@ allure {
     }
 }
 dependencies {
+    compile("io.qameta.allure:allure-java-commons:2.12.1")
     testImplementation(
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",

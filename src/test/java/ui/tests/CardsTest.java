@@ -4,6 +4,7 @@ import io.qameta.allure.AllureId;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import ru.raiff.demo.allure.JiraIssue;
 import ui.pages.CardsPage;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -14,6 +15,7 @@ public class CardsTest extends BaseTest{
 
     private final CardsPage cardsPage = new CardsPage();
 
+    @JiraIssue("QC3-26")
     @AllureId("2234")
     @DisplayName("Show credit cards")
     @Test
